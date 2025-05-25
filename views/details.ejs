@@ -1,0 +1,61 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+    <div class="details">
+        <section class="anime-details">
+            <div class="details__header">
+                <a class="close-btn" href="/">x</a>
+                <div class="details__img">
+                    <img src="<%= details.images %>" alt="">
+                </div>
+                <div class="details__description">
+                    <table>
+                        <tr>
+                            <th>Title</th>
+                            <td>:</td>
+                            <td> <%= details.title ? details.title : "N/A" %></td>
+                        </tr>
+                        <tr>
+                            <th>Score</th>
+                            <td>:</td>
+                            <td> <%= details.score ? details.score : "N/A" %></td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td>:</td>
+                            <td><%= details.status  ? details.status : "N/A" %></td>
+                        </tr>
+                        <tr>
+                            <th>Episode</th>
+                            <td>:</td>
+                            <td><%= details.episode ? details.episode : "N/A" %></td>
+                        </tr>
+                        <tr>
+                            <th>Year</th>
+                            <td>:</td>
+                            <td><%= details.year ?  details.year : "N/A" %></td>
+                        </tr>
+                        <tr>
+                            <th>Genre</th>
+                            <td>:</td>
+                            <td><%= details.genres ? details.genres : "N/A" %></td>
+                        </tr>
+                        <tr>
+                            <th>Produser</th>
+                            <td>:</td>
+                            <td><%= details.producer ? details.producer : "N/A" %></td>
+                        </tr>
+                        <tr>
+                            <td class="td-action" colspan="3"><a href="<%= details.trailer %>" class="trailer-btn">Watch trailer</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="details__synopsis">
+                <h1>Synopsis</h1>
+                <p>
+                    <%= details.synopsis %>
+                    </p>
+                </div>
+        </section>
+    </div>
+    <%- include('partials/footer') %>

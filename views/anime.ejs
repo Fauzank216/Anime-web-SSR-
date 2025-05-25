@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+    <%- include('partials/navbar') %>
+        <section class="recommendation">
+            <% if ( type==="recommendation" ) { %>
+                <h1 class="recommendation__heading">Recommendation</h1>
+                <% }else if (type==="top" ){ %>
+                    <h1 class="recommendation__heading">Top Anime</h1>
+                    <% } else if (type==="Search" ) { %>
+                        <h1 class="recommendation__heading">Result</h1>
+                        <% } %>
+                            <div class="recommendation__list">
+
+                                <% recommendations.forEach(element=> { %>
+                                    <article class="anime-card">
+                                        <div class="anime-card_body_img">
+                                            <img class="anime-card__img" src="<%= element.images %>" alt="">
+                                        </div>
+                                        <div class="anime-card__body">
+                                            <a class="anime-card__title" href="details/<%=element.mal_id%>">
+                                                <%= element.title %>
+                                            </a>
+                                            <div class="anime-card__heading">
+                                                <p>Year : <%= element.year ? element.year : "N/A" %>
+                                                </p>
+                                                <p>Eps : <%= element.episode ? element.episode : "N/A" %>
+                                                </p>
+                                            </div>
+                                            <div class="anime-card__score">
+                                                <i data-feather="star" style="width: 17px;"></i>
+                                                <p>
+                                                    <%= element.score ? element.score : "N/A" %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <% }) %>
+
+                            </div>
+        </section>
+        <%- include('partials/footer') %>
